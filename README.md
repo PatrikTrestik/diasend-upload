@@ -14,6 +14,6 @@ Uploading CGM data to Diasend servers from Nightscout
 * "Diasend Uploader" app could be used to dig out some information
 * communication with Diasend/Glooko company
 
-#Help needed
+# Help needed
 * Will be great if someone can take over communication with Diasend.
 

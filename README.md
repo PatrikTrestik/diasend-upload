@@ -16,4 +16,5 @@ Uploading CGM data to Diasend servers from Nightscout
 
 # Help needed
 * Will be great if someone can take over communication with Diasend.
+* Looking for Android developper who can investigate existing APKs
 

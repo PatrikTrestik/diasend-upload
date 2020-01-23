@@ -1,0 +1,153 @@
+openapi: 3.0.0
+# Added by API Auto Mocking Plugin
+servers:
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/PatrikTrestik/DiasendAPI/1.0.0
+  - description: Diasend API
+    url: https://api.diasend.com/1/
+info:
+  version: "1.0.0"
+  title: Diasend API documentation
+  description: >-
+    This is documentation of known API endpoints, not official documentation provided by API owner.
+security:
+  - password:
+      - PATIENT DIASEND_MOBILE_DEVICE_DATA_RW
+paths:
+  /patient/data:
+    get:
+      summary: Read patient data
+      description: >-
+        Patient data.List of devices and its data.
+      parameters:
+        - in: query
+          name: type
+          schema:
+            type: string
+        - in: query
+          name: only_cgm
+          schema:
+            type: boolean
+        - in: query
+          name: date_from
+          schema: 
+            type: string
+            format: date-time
+        - in: query
+          name: date_to
+          schema: 
+            type: string
+            format: date-time
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PatientDataItem'
+    post:
+      summary: Upload data
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: 
+               $ref: '#/components/schemas/DataUpload'
+      responses:
+        '200':
+          description: OK
+  /patient/data/{deviceId}:
+    get:
+      summary: Read patient data
+      description: >-
+        Patient data.List of devices and its data.
+      parameters:
+      - in: path
+        name: deviceId
+        schema:
+          type: string
+        required: true
+        description: ID of device
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PatientDataItem'
+components:
+  schemas: 
+    DataUpload:
+      type: object
+      properties:
+        device_type:
+          type: string
+        uuid:
+          type: string
+        pcode:
+          type: string
+        password:
+          type: string
+        payload:
+          type: string
+    PatientDataItem:
+      type: object
+      properties:
+        data: 
+          type: array
+          items: 
+            type: object
+            properties:
+              type: 
+                type: string
+                enum: [glucose]
+              created_at:
+                type: string
+                format: date-time
+              value: 
+                type: number
+              unit:
+                type: string
+                enum: [mmol/l]
+              flags:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    flag:
+                      type: number
+                    description:
+                      type: string
+        device: 
+          type: object
+          properties:
+            serial:
+              type: string
+            manufacturer: 
+              type: string
+            model: 
+              type: string
+            first_value_at:
+              type: string
+            last_value_at:
+              type: string
+            supports_glucose: 
+              type: string
+            supports_cgm: 
+              type: string
+            supports_insulin: 
+              type: string
+            supports_carb: 
+              type: string
+  securitySchemes:
+    password:
+      type: oauth2
+      flows:
+        password:
+          tokenUrl: 'oauth2/token'
+          scopes:
+            PATIENT DIASEND_MOBILE_DEVICE_DATA_RW: allows modifying resources

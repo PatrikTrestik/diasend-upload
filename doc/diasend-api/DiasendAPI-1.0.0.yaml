@@ -14,16 +14,34 @@ security:
   - password:
       - PATIENT DIASEND_MOBILE_DEVICE_DATA_RW
 paths:
+  /patient/data#:
+    get:
+      summary: Read patient data summary
+      description: >-
+        Patient data. List of devices.
+      operationId: GetPatientSummary
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PatientData'
   /patient/data:
     get:
-      summary: Read patient data
+      summary: Read patient data summary
       description: >-
-        Patient data.List of devices and its data.
+        Patient data. List of devices and its data.
+        For glucose reading you have to specifi 'type' and 'date_from', 'date_to'
+      operationId: GetPatientData
       parameters:
         - in: query
           name: type
           schema:
             type: string
+            enum: [cgm,combined,standardday,score_card,bg_pie_chart,cgm_pie_chart,insulin_pie_chart]
         - in: query
           name: only_cgm
           schema:
@@ -46,9 +64,12 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/PatientDataItem'
+                  $ref: '#/components/schemas/DataItem'
     post:
       summary: Upload data
+      description: >-
+        Upload patient data. Data itself is encoded in 'payload'
+      operationId: PostPatientData
       requestBody:
         required: true
         content:
@@ -58,27 +79,6 @@ paths:
       responses:
         '200':
           description: OK
-  /patient/data/{deviceId}:
-    get:
-      summary: Read patient data
-      description: >-
-        Patient data.List of devices and its data.
-      parameters:
-      - in: path
-        name: deviceId
-        schema:
-          type: string
-        required: true
-        description: ID of device
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/PatientDataItem'
 components:
   schemas: 
     DataUpload:
@@ -92,36 +92,42 @@ components:
           type: string
         password:
           type: string
+        insulin_brand:
+          type: string
+        pen_serial:
+          type: string
         payload:
           type: string
-    PatientDataItem:
+    DataItem:
+      type: object
+      properties:
+        type: 
+          type: string
+          enum: [glucose]
+        created_at:
+          type: string
+          format: date-time
+        value: 
+          type: number
+        unit:
+          type: string
+          enum: [mmol/l]
+        flags:
+          type: array
+          items:
+            type: object
+            properties:
+              flag:
+                type: number
+              description:
+                type: string
+    PatientData:
       type: object
       properties:
         data: 
           type: array
           items: 
-            type: object
-            properties:
-              type: 
-                type: string
-                enum: [glucose]
-              created_at:
-                type: string
-                format: date-time
-              value: 
-                type: number
-              unit:
-                type: string
-                enum: [mmol/l]
-              flags:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    flag:
-                      type: number
-                    description:
-                      type: string
+            $ref: '#/components/schemas/DataItem'
         device: 
           type: object
           properties:
@@ -133,8 +139,10 @@ components:
               type: string
             first_value_at:
               type: string
+              format: date-time
             last_value_at:
               type: string
+              format: date-time
             supports_glucose: 
               type: string
             supports_cgm: 

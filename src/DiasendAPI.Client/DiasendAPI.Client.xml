@@ -98,5 +98,130 @@
             <param name="payload">Raw byte array. GATT??</param>
             <returns></returns>
         </member>
+        <member name="T:DiasendAPI.GATGlucoseMeasurement.GlucoseMeasurementFlags">
+            <summary>
+            These flags define which data fields are present in the Characteristic value
+            </summary>
+        </member>
+        <member name="F:DiasendAPI.GATGlucoseMeasurement.GlucoseMeasurementFlags.TimeOffsetPresent">
+            <summary>
+            The time offset present
+            </summary>
+        </member>
+        <member name="F:DiasendAPI.GATGlucoseMeasurement.GlucoseMeasurementFlags.GlucoseTypeSampleLocationPresent">
+            <summary>
+            Glucose Concentration, Type and Sample Location Present
+            </summary>
+        </member>
+        <member name="F:DiasendAPI.GATGlucoseMeasurement.GlucoseMeasurementFlags.GlucoseConcentrationUnits">
+            <summary>
+            Glucose Concentration Units, 0-kg/L, 1-mol/L
+            </summary>
+        </member>
+        <member name="F:DiasendAPI.GATGlucoseMeasurement.GlucoseMeasurementFlags.SensorStatusAnnunciationPresent">
+            <summary>
+            Sensor Status Annunciation Present
+            </summary>
+        </member>
+        <member name="F:DiasendAPI.GATGlucoseMeasurement.GlucoseMeasurementFlags.ContextInformationFollows">
+            <summary>
+            Context Information Follows
+            </summary>
+        </member>
+        <member name="T:DiasendAPI.GATGlucoseMeasurement.GlucoseSampleType">
+            <summary>
+            Glucose Sample Type
+            </summary>
+        </member>
+        <member name="F:DiasendAPI.GATGlucoseMeasurement.GlucoseSampleType.Reserved1">
+            <summary>
+            Reserved for future use
+            </summary>
+        </member>
+        <member name="F:DiasendAPI.GATGlucoseMeasurement.GlucoseSampleType.CapillaryWholeBlood">
+            <summary>
+            The capillary whole blood
+            </summary>
+        </member>
+        <member name="F:DiasendAPI.GATGlucoseMeasurement.GlucoseSampleType.CapillaryPlasma">
+            <summary>
+            The capillary plasma
+            </summary>
+        </member>
+        <member name="F:DiasendAPI.GATGlucoseMeasurement.GlucoseSampleType.VenousWholeBlood">
+            <summary>
+            The venous whole blood
+            </summary>
+        </member>
+        <member name="F:DiasendAPI.GATGlucoseMeasurement.GlucoseSampleType.VenousPlasma">
+            <summary>
+            The venous plasma
+            </summary>
+        </member>
+        <member name="F:DiasendAPI.GATGlucoseMeasurement.GlucoseSampleType.ArterialWholeBlood">
+            <summary>
+            The arterial whole blood
+            </summary>
+        </member>
+        <member name="F:DiasendAPI.GATGlucoseMeasurement.GlucoseSampleType.ArterialPlasma">
+            <summary>
+            The arterial plasma
+            </summary>
+        </member>
+        <member name="F:DiasendAPI.GATGlucoseMeasurement.GlucoseSampleType.UndeterminedWholeBlood">
+            <summary>
+            The undetermined whole blood
+            </summary>
+        </member>
+        <member name="F:DiasendAPI.GATGlucoseMeasurement.GlucoseSampleType.UndeterminedPlasma">
+            <summary>
+            The undetermined Plasma
+            </summary>
+        </member>
+        <member name="F:DiasendAPI.GATGlucoseMeasurement.GlucoseSampleType.InterstitialFluid">
+            <summary>
+            The interstitial fluid
+            </summary>
+        </member>
+        <member name="F:DiasendAPI.GATGlucoseMeasurement.GlucoseSampleType.ControlSolution">
+            <summary>
+            The control solution
+            </summary>
+        </member>
+        <member name="T:DiasendAPI.GATGlucoseMeasurement.GlucoseSampleLocation">
+            <summary>
+            Glucose Sample Location
+            </summary>
+        </member>
+        <member name="F:DiasendAPI.GATGlucoseMeasurement.GlucoseSampleLocation.Reserved1">
+            <summary>
+            The reserved1
+            </summary>
+        </member>
+        <member name="F:DiasendAPI.GATGlucoseMeasurement.GlucoseSampleLocation.Finger">
+            <summary>
+            The finger
+            </summary>
+        </member>
+        <member name="F:DiasendAPI.GATGlucoseMeasurement.GlucoseSampleLocation.AlternateSiteTest">
+            <summary>
+            The alternate site test
+            </summary>
+        </member>
+        <member name="F:DiasendAPI.GATGlucoseMeasurement.GlucoseSampleLocation.Earlobe">
+            <summary>
+            The earlobe
+            </summary>
+        </member>
+        <member name="F:DiasendAPI.GATGlucoseMeasurement.GlucoseSampleLocation.ControlSolution">
+            <summary>
+            The control solution
+            </summary>
+        </member>
+        <member name="F:DiasendAPI.GATGlucoseMeasurement.GlucoseSampleLocation.SampleLocationValueNotAvailable">
+            <summary>
+            The sample location value not available
+            </summary>
+        </member>
     </members>
 </doc>

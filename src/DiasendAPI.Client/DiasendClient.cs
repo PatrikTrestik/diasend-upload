@@ -67,10 +67,10 @@ namespace DiasendAPI
                 client.BaseUrl = "https://api.diasend.com/1/";
                 var data = new DataUpload()
                 {
-                    Device_type = "GATTProfileGlucose",
+                    Device_type = "GATTProfileGlucose",                   
                     Pcode = username,
                     Password = password,
-                    Uuid = glucoseUuid.ToString("n"),
+                    Uuid = randomUuid.ToString("n").Substring(0,16),
                     Payload = Convert.ToBase64String(payload)
                 };
                 await client.PostPatientDataAsync(data);

@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DiasendAPI.Client</name>
+    </assembly>
+    <members>
+        <member name="T:DiasendAPI.Client">
+            <summary>
+            Partial. Část přidává Basic autorizaci.
+            </summary>
+        </member>
+        <member name="M:DiasendAPI.Client.GetPatientSummaryAsync">
+            <summary>Read patient data summary</summary>
+            <returns>OK</returns>
+            <exception cref="T:DiasendAPI.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:DiasendAPI.Client.GetPatientSummaryAsync(System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Read patient data summary</summary>
+            <returns>OK</returns>
+            <exception cref="T:DiasendAPI.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:DiasendAPI.Client.GetPatientDataAsync(System.Nullable{DiasendAPI.Type},System.Nullable{System.Boolean},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset})">
+            <summary>Read patient data summary</summary>
+            <returns>OK</returns>
+            <exception cref="T:DiasendAPI.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:DiasendAPI.Client.GetPatientDataAsync(System.Nullable{DiasendAPI.Type},System.Nullable{System.Boolean},System.Nullable{System.DateTimeOffset},System.Nullable{System.DateTimeOffset},System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Read patient data summary</summary>
+            <returns>OK</returns>
+            <exception cref="T:DiasendAPI.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:DiasendAPI.Client.PostPatientDataAsync(DiasendAPI.DataUpload)">
+            <summary>Upload data</summary>
+            <returns>OK</returns>
+            <exception cref="T:DiasendAPI.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="M:DiasendAPI.Client.PostPatientDataAsync(DiasendAPI.DataUpload,System.Threading.CancellationToken)">
+            <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+            <summary>Upload data</summary>
+            <returns>OK</returns>
+            <exception cref="T:DiasendAPI.ApiException">A server side error occurred.</exception>
+        </member>
+        <member name="P:DiasendAPI.Client.RetrieveAuthorizationToken">
+            <summary>
+            Gets the retrieve authorization token.
+            </summary>
+        </member>
+        <member name="M:DiasendAPI.Client.#ctor(System.String,System.String)">
+            <summary>
+            OAuth2 authorization
+            </summary>
+            <param name="userName">Username</param>
+            <param name="password">password</param>
+        </member>
+        <member name="M:DiasendAPI.Client.Dispose">
+            <summary>
+            Releases unmanaged and - optionally - managed resources.
+            </summary>
+        </member>
+        <member name="M:DiasendAPI.Client.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources.
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="T:DiasendAPI.DiasendClient">
+            <summary>
+            Diasend API cleint wrapper. High level methods.
+            </summary>
+        </member>
+        <member name="M:DiasendAPI.DiasendClient.#ctor(System.String,System.String)">
+            <summary>
+            Initialize client.
+            </summary>
+            <param name="username">Diasend servers User id</param>
+            <param name="password">Diasend servers User password</param>
+        </member>
+        <member name="M:DiasendAPI.DiasendClient.GetRegisteredDevices">
+            <summary>
+            Reads registered/known 'devices'
+            </summary>
+            <returns>List of Device</returns>
+        </member>
+        <member name="M:DiasendAPI.DiasendClient.GetPatientData(System.DateTimeOffset,System.DateTimeOffset)">
+            <summary>
+            Reads all patient data between dates. Number of results is server limited, keep interval small.
+            </summary>
+            <param name="from"></param>
+            <param name="to"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DiasendAPI.DiasendClient.UploadGlucoseData(System.Byte[])">
+            <summary>
+            Uploads reading to server
+            </summary>
+            <param name="payload">Raw byte array. GATT??</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

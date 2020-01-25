@@ -3,6 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+    <DocumentationFile>C:\Users\trest\Source\Repos\diasend-upload\src\DiasendAPI.Client\DiasendAPI.Client.xml</DocumentationFile>
+  </PropertyGroup>
   <Target Name="NSwag" AfterTargets="Build">
     <Exec Command="$(NSwagExe_Core30) run nswag.json /variables:Configuration=$(Configuration)" />
   </Target>

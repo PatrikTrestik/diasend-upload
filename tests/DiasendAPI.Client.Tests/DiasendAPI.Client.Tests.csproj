@@ -6,6 +6,7 @@
     <UserSecretsId>b57894e6-4d60-4d4c-924a-0c09c099c535</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Markeli.Half" Version="1.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="3.1.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />

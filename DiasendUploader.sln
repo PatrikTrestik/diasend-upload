@@ -11,7 +11,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Doc", "Doc", "{94789269-EE4
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiasendAPI.Client.Tests", "tests\DiasendAPI.Client.Tests\DiasendAPI.Client.Tests.csproj", "{CA9C0F8B-F15B-425A-BAEA-0CB5394A74E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiasendAPI.Client.Tests", "tests\DiasendAPI.Client.Tests\DiasendAPI.Client.Tests.csproj", "{CA9C0F8B-F15B-425A-BAEA-0CB5394A74E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1DA797BE-EEE9-428A-A87B-49B83C2BE2D8}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

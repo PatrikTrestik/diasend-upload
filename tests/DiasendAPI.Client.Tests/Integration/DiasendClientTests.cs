@@ -29,7 +29,7 @@ namespace DiasendAPI.Client.Tests.Integration
         {
             var username = Configuration["ApiUsername"];
             var password = Configuration["ApiPassword"];
-            var testSerial = "SM30226252"; //Change this to serial of your your device
+            var testSerial = Configuration["DeviceSerial"]; //Change this to serial of your your device
 
             var client = new DiasendClient(username,password);
 
@@ -66,7 +66,7 @@ namespace DiasendAPI.Client.Tests.Integration
             var typeAndLocation = (byte)(((byte)GlucoseSampleLocation.Finger << 4) + (byte)GlucoseSampleType.CapillaryWholeBlood);
 
             var payload = new List<byte>();
-            payload.AddRange(System.Text.UTF8Encoding.UTF8.GetBytes("!TAG!SEPARATOR!TAG!SERIAL!92906169505!TAG!SEPARATOR!TAG!MODEL!929!TAG!SEPARATOR!TAG!NAME!meter+06169505!TAG!SEPARATOR!TAG!MANUFACTURER!Roche!TAG!SEPARATOR!TAG!HWREV!!TAG!SEPARATOR!TAG!FWREV!v1.8.6!TAG!SEPARATOR!TAG!SWREV!!TAG!SEPARATOR!TAG!SYSID!"));
+            payload.AddRange(System.Text.UTF8Encoding.UTF8.GetBytes($"!TAG!SEPARATOR!TAG!SERIAL!{Configuration["DeviceSerial"]}!TAG!SEPARATOR!TAG!MODEL!929!TAG!SEPARATOR!TAG!NAME!meter+06169505!TAG!SEPARATOR!TAG!MANUFACTURER!Roche!TAG!SEPARATOR!TAG!HWREV!!TAG!SEPARATOR!TAG!FWREV!v1.8.6!TAG!SEPARATOR!TAG!SWREV!!TAG!SEPARATOR!TAG!SYSID!"));
             payload.AddRange(new byte[] { 0xA1, 0x23, 0x67, 0x01, 0x00, 0x19, 0x60, 0x00 });
             payload.AddRange(System.Text.UTF8Encoding.UTF8.GetBytes("!TAG!SEPARATOR!TAG!PNPID!"));
             payload.AddRange(new byte[] { 0x01, 0x70, 0x01, 0xD5, 0x21, 0x72, 0x01 });

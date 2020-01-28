@@ -27,7 +27,7 @@ namespace DiasendAPI.Client.Tests.Integration
         {
             var username = Configuration["ApiUsername"];
             var password = Configuration["ApiPassword"];
-            var testSerial = "SM30226252"; //Change this to serial of your your device
+            var testSerial = Configuration["DeviceSerial"]; //Change this to serial of your your device
 
             var client = new DiasendClient(username,password);
 
